@@ -1,0 +1,25 @@
+<table>
+	<tr>
+		<td> Nome: </td>
+		<td> <%= form.text_field :nome %>
+	</tr>
+	<tr>
+		<td> Preço: </td>
+		<td> <%= form.text_field :preco %>
+	</tr>
+	<tr>
+		<td> Quantidade: </td>
+		<td> <%= form.number_field :quantidade , :style => "width: 50px;" %>
+	</tr>	
+	<tr>
+		<td> Descrição: </td>
+		<td> <%= form.text_area :descricao , :size => "40x5" %>
+	</tr>
+	
+	<tr>		
+		<td> <%= form.submit "Salvar" %> </td>
+		<% if params[:action] == "new" %>
+			<%= form.submit "Limpar" , :type => :reset %>
+		<% end %>
+	</tr>
+</table>

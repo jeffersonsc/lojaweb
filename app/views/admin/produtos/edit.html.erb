@@ -1,0 +1,9 @@
+<h3> Editar produto </h3>
+
+<%= form_for [:admin , @produto] do |form| %>
+	<% form.hidden_field :id %>
+	<%= render(:partial => "form" , :locals => {:form => form })%>
+<% end %>
+
+<br />
+<%= link_to_function "Voltar" , "javascript:history.back();"%>

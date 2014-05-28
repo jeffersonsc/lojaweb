@@ -1,0 +1,31 @@
+<h3> Lista de produtos </h3>
+
+<table>
+	<tr> 
+		<th style="text-align: left;"> Nome </th>
+		<th style="text-align: left;"> Preço </th>
+		<th style="text-align: left;"> Quantidade </th>
+		<th style="text-align: left;"> Situação </th>
+		<th> </th>		
+	</tr>
+	<% @produto.each do |prod| %>		
+			<tr class="<%= cycle("COR1" , "COR2")%>">
+				<td> <%= prod.nome %> </td>
+				<td> <%= fmt_real(prod.preco) %> </td>
+				<td> <%= prod.quantidade %> </td>
+				<td>
+					<% if prod.quantidade > 0 %>
+						<%= "Disponivél" %>
+					<% else %>
+						<%= "Indisponivél"%>
+					<% end %>
+				</td>
+				<td> <%= link_to("Editar" , {:action => :edit , :produto_id => prod.id })%> <%= link_to("Apagar" , {:action => :destroy , :produto_id => prod.id } , :confirm => "Deseja apagar esse produto? " , method: :delete ) %> </td>
+			</tr>
+		
+	<% end %>
+</table>
+
+<br />
+<br />
+<%= link_to_function "Voltar" , "javascript:history.back();"%>
